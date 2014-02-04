@@ -24,6 +24,7 @@ function! s:unite_source.gather_candidates(args, context)
           \ "action__command": s:open_project(v:val)
           \}')
   else
+    echo 'The variable g:unite_projects_workspaces is not defined'
     return []
   endif
 endfunction
