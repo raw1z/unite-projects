@@ -12,7 +12,7 @@ function! s:list_folders(workspaces)
 endfunction
 
 function! s:open_project(path)
-  return printf("tabnew | lcd %s | Unite -auto-resize file_rec", a:path)
+  return printf("tabnew | lcd %s", a:path)
 endfunction
 
 function! s:unite_source.gather_candidates(args, context)
