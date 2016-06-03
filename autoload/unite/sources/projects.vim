@@ -6,13 +6,23 @@ let s:unite_source = {
       \ 'description': 'candidates for your projects'
       \ }
 
+function! projects#go_to_path(path)
+  if exists(':VimFilerTab')
+    execute 'VimFilerTab ' . a:path 
+    execute 'lcd' . a:path
+  else
+    execute 'tabnew'
+    execute 'lcd' . a:path
+  endif
+endfunction
+
 function! s:list_folders(workspaces)
   let output = globpath(join(a:workspaces, ','), '*')
   return split(output, '\n')
 endfunction
 
 function! s:open_project(path)
-  return printf("tabnew | lcd %s", a:path)
+  return printf("projects#go_to_path('%s')", a:path)
 endfunction
 
 function! s:unite_source.gather_candidates(args, context)
