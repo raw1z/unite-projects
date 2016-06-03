@@ -22,7 +22,7 @@ function! s:list_folders(workspaces)
 endfunction
 
 function! s:open_project(path)
-  return printf("projects#go_to_path('%s')", a:path)
+  return printf("call projects#go_to_path('%s')", a:path)
 endfunction
 
 function! s:unite_source.gather_candidates(args, context)
